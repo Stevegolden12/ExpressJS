@@ -3,6 +3,21 @@ var bodyParser = require('body-parser')
 var path = require('path');
 
 var app = express();
+/* Middleware must be before app.get else it will not work
+var logger = function (req, res, next) {
+  console.log('Logging...');
+  next();
+}
+
+app.use(logger);
+*/
+
+//Body Parser Middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+//Set Static Path
+app.use(express.static(path.join(__dirname, 'public')));
 
 /* route */
 app.get('/', function(req, res){
