@@ -19,9 +19,31 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //Set Static Path
 app.use(express.static(path.join(__dirname, 'public')));
 
+/*
+var people = [
+    {
+    name: 'Jeff',
+    age: 30
+  },
+  {
+    name: "Sara",
+    age: 22
+  },
+  {
+    name: "Bill",
+    age: 40
+  }
+]
+
+app.get('/', function(req, res){
+  res.json(people);
+});
+
+/*
+
 /* route */
 app.get('/', function(req, res){
-  res.send('Hello World');
+  res.send("Hello");
 });
 
 /* listen */
