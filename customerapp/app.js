@@ -47,8 +47,10 @@ app.get('/', function(req, res){
 /*
 
 /* route */
-app.get('/', function(req, res){
-  res.render('index');
+app.get('/', function (req, res) {
+  res.render('index', {
+    title: 'Customers'
+  });
 });
 
 /* listen */
