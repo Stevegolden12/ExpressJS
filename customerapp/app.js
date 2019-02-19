@@ -12,6 +12,10 @@ var logger = function (req, res, next) {
 app.use(logger);
 */
 
+// View Engine
+app set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
 //Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -43,7 +47,7 @@ app.get('/', function(req, res){
 
 /* route */
 app.get('/', function(req, res){
-  res.send("Hello");
+  res.render('index');
 });
 
 /* listen */
