@@ -13,8 +13,9 @@ app.use(logger);
 */
 
 // View Engine
-app set('view engine', 'ejs');
+app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+
 
 //Body Parser Middleware
 app.use(bodyParser.json());
@@ -46,8 +47,10 @@ app.get('/', function(req, res){
 /*
 
 /* route */
-app.get('/', function(req, res){
-  res.render('index');
+app.get('/', function (req, res) {
+  res.render('index', {
+    title: 'Customers'
+  });
 });
 
 /* listen */
