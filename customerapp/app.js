@@ -75,6 +75,10 @@ app.get('/', function (req, res) {
   });
 });
 
+app.post('/users/add', function () {
+  console.log('FORM SUBMITTED');
+});
+
 /* listen */
 app.listen(3000, function () {
   console.log("Server started on Port 3000....")
