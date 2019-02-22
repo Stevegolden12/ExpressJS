@@ -1,6 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser')
 var path = require('path');
+var expressValidator = require('express-validator')
 
 var app = express();
 /* Middleware must be before app.get else it will not work
@@ -23,6 +24,24 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //Set Static Path
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Express Validator Middleware
+app.use(expressValidator({
+  errorFormatter: function (param, msg, value) {
+    var namespace = param.split('.')
+      , root = namespace.shift()
+      , formParam = root;
+
+    while (namespace.length) {
+      formParam += '[' + namespace.shift() + ']'
+    }
+    return {
+      param: formParam,
+      msg: msg,
+      value: value
+    };
+  }
+}))
 
 var users = [
   {
@@ -75,8 +94,31 @@ app.get('/', function (req, res) {
   });
 });
 
-app.post('/users/add', function () {
+app.post('/users/add', function (req, res) {
+
+  req.checkBody('first_name', 'First name is Required').notEmpty();
+  req.checkBody('last_name', 'Last name is Required').notEmpty();
+  req.checkBody('email', 'Email is Required').notEmpty();
+
+  var errors = req.validationErrors();
+
+  if (errors) {
+    console.log("ERRORS")
+  } else {
+    var newUser = {
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
+      email: req.body.email,
+    }
+    console.log('SUCCESS')
+  }
+
+
+  console.log(newUser);
+
+  /* Check if post is working
   console.log('FORM SUBMITTED');
+  */
 });
 
 /* listen */

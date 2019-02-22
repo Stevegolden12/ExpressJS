@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\customerapp"
+    "\\customerapp",
+    "\\customerapp\\views"
   ],
-  "SelectedNode": "\\.gitattributes",
+  "SelectedNode": "\\customerapp\\app.js",
   "PreviewInSolutionExplorer": false
 }
