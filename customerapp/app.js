@@ -25,6 +25,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 //Set Static Path
 app.use(express.static(path.join(__dirname, 'public')));
 
+//Global Vars
+app.use(function (req, res, next) {
+  res.locals.errors = null
+  next()
+})
+
+
 // Express Validator Middleware
 app.use(expressValidator({
   errorFormatter: function (param, msg, value) {
@@ -104,6 +111,11 @@ app.post('/users/add', function (req, res) {
 
   if (errors) {
     console.log("ERRORS")
+    res.render('index', {
+      title: 'Customers',
+      users: users,
+      errors: errors,
+    });
   } else {
     var newUser = {
       first_name: req.body.first_name,
