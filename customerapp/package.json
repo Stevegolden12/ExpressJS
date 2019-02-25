@@ -11,6 +11,7 @@
     "ejs": "^2.6.1",
     "express": "*",
     "express-validator": "^5.3.1",
+    "mongojs": "^2.6.0",
     "nodemon": "^1.18.10"
   },
   "author": "Steve Golden",
