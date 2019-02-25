@@ -4,6 +4,6 @@
     "\\customerapp",
     "\\customerapp\\views"
   ],
-  "SelectedNode": "\\customerapp\\package.json",
+  "SelectedNode": "\\customerapp\\views\\index.ejs",
   "PreviewInSolutionExplorer": false
 }
