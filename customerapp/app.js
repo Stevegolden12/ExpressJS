@@ -50,7 +50,7 @@ app.use(expressValidator({
     };
   }
 }))
-
+/*
 var users = [
   {
   id: 1,
@@ -71,7 +71,7 @@ var users = [
     email: 'jjackson@gmail.com'
   },
 ]
-
+*/
 /*
 var people = [
     {
@@ -126,11 +126,14 @@ app.post('/users/add', function (req, res) {
       last_name: req.body.last_name,
       email: req.body.email,
     }
-    console.log('SUCCESS')
+    db.users.insert(newUser, function (err, result) {
+      if (err) {
+        console.log(err)
+      }
+      res.redirect('/')
+    });
   }
 
-
-  console.log(newUser);
 
   /* Check if post is working
   console.log('FORM SUBMITTED');
