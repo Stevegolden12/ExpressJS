@@ -2,7 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser')
 var path = require('path');
 var expressValidator = require('express-validator')
-
+var mongojs = require('mongojs')
+var db = mongojs('customerapp', ['users']);
 var app = express();
 /* Middleware must be before app.get else it will not work
 var logger = function (req, res, next) {
@@ -95,10 +96,13 @@ app.get('/', function(req, res){
 
 /* route */
 app.get('/', function (req, res) {
-  res.render('index', {
-    title: 'Customers',
-    users: users
-  });
+  db.users.find(function (err, docs) {
+    console.log(docs);
+    res.render('index', {
+      title: 'Customers',
+      users: docs
+    });
+  })
 });
 
 app.post('/users/add', function (req, res) {
