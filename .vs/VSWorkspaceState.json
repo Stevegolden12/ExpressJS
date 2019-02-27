@@ -4,6 +4,6 @@
     "\\customerapp",
     "\\customerapp\\views"
   ],
-  "SelectedNode": "\\customerapp\\app.js",
+  "SelectedNode": "\\customerapp\\views\\index.ejs",
   "PreviewInSolutionExplorer": false
 }
