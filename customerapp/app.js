@@ -4,6 +4,7 @@ var path = require('path');
 var expressValidator = require('express-validator')
 var mongojs = require('mongojs')
 var db = mongojs('customerapp', ['users']);
+var ObjectId = mongojs.ObjectId;
 var app = express();
 /* Middleware must be before app.get else it will not work
 var logger = function (req, res, next) {
@@ -138,6 +139,15 @@ app.post('/users/add', function (req, res) {
   /* Check if post is working
   console.log('FORM SUBMITTED');
   */
+});
+
+app.delete('users/delete/:id', function (req, res) {
+  db.users.remove({ _id: ObjectId(req.params.id) }, function (err, results) {
+    if (err) {
+      console.log(err);
+    }
+    res.redirect('/');
+  })
 });
 
 /* listen */
