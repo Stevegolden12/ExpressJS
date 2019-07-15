@@ -12,7 +12,7 @@ function deleteUser() {
     }).done(function (response) {
       window.location.replace('/')
       });
-    window.location.replace('/')
+   // window.location.replace('/')
   } else {
     return false;
   }

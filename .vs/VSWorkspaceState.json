@@ -2,7 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\customerapp",
-    "\\customerapp\\views"
+    "\\customerapp\\Public",
+    "\\customerapp\\Public\\js",
+    "\\customerapp\\views",
+    "\\customerapp\\views\\partials"
   ],
+  "SelectedNode": "\\customerapp\\views",
   "PreviewInSolutionExplorer": false
 }

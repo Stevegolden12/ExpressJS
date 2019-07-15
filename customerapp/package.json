@@ -12,7 +12,8 @@
     "express": "*",
     "express-validator": "^5.3.1",
     "mongojs": "^2.6.0",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10",
+    "mem": ">=4.0.0"
   },
   "author": "Steve Golden",
   "license": "ISC"
